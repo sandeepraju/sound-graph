@@ -4,10 +4,12 @@
     <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/howler.min.js"></script>
+	<script src="js/PhoneFormat.js"></script>
     <script>
       var socket = io();
       socket.on("event", function(message){
-	    play_sound(40,'add',1);
+		country_code = countryForE164Number('+'+message.To).replace('+','');
+	    play_sound(country_code,'add',1);
 	  });
 	  var celesta = [],
           clav = [],
