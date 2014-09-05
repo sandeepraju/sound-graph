@@ -241,6 +241,7 @@ var rate_bg = svg.append('rect')
     .attr('height', height)
 */
 function play_sound(size, type, volume) {
+	console.log(size+" "+type+" "+volume);
     var max_pitch = 100.0;
     var log_used = 1.0715307808111486871978099;
     var pitch = 100 - Math.min(max_pitch, Math.log(size + log_used) / Math.log(log_used));
