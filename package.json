@@ -11,12 +11,13 @@
     "url": "git://github.com/sandeepraju/sound-graph.git"
   },
   "author": "",
-  "license": "BSD-2-Clause",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/sandeepraju/sound-graph/issues"
   },
   "dependencies": {
     "express": "~4.8.8",
-    "socket.io": "~1.1.0"
+    "socket.io": "~1.1.0",
+    "body-parser": "^1.7.0"
   }
 }
