@@ -1,21 +1,41 @@
-from flask import Flask
-from flask import render_template
-from flask_sockets import Sockets
+import json
+
+from flask import Flask, render_template
+from flask.ext.socketio import SocketIO, emit
 
 app = Flask(__name__)
-sockets = Sockets(app)
-
-
-@sockets.route('/events')
-def echo_socket(ws):
-    while True:
-        message = ws.receive()
-        ws.send(message)
-
+app.config['SECRET_KEY'] = 'blah-blah-blah'
+socketio = SocketIO(app)
 
 @app.route('/')
-def hello():
+def index():
     return render_template('index.html')
 
+@app.route('/events')
+def events():
+    payload = json.loads(request.data)
+    emit('events', {'data': payload})
+    response jsonify({'status': 'success'})
+
+# @socketio.on('my event', namespace='/test')
+# def test_message(message):
+#     emit('my response', {'data': message['data']})
+
+# @socketio.on('start-stream', namespace='/test')
+# def test_message(message):
+
+#     # emit('my response', {'data': message['data']}, broadcast=True)
+
+
+
+
+@socketio.on('connect', namespace='/ev')
+def test_connect():
+    emit('my response', {'data': 'Connected'})
+
+@socketio.on('disconnect', namespace='/ev')
+def test_disconnect():
+    print('Client disconnected')
+
 if __name__ == '__main__':
-    app.run()
+    socketio.run(app, host='0.0.0.0', port='5000')
