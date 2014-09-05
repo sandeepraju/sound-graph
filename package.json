@@ -1,0 +1,22 @@
+{
+  "name": "sound-graph",
+  "version": "0.0.1",
+  "description": "Play sounds based on data",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sandeepraju/sound-graph.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/sandeepraju/sound-graph/issues"
+  },
+  "dependencies": {
+    "express": "~4.8.8",
+    "socket.io": "~1.1.0"
+  }
+}

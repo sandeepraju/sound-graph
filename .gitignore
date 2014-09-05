@@ -54,3 +54,6 @@ docs/_build/
 
 #Ignore pycharm files
 .idea/
+
+# Ignore node modules
+node_modules
