@@ -12,7 +12,7 @@ app.get('/', function(req, res){
   res.sendfile('templates/index.html');
 });
 
-app.get('/event', function(req, res){
+app.post('/event', function(req, res){
     io.emit('event', req.body);
     console.log(req.body);
     res.send({'status': 'success'});
