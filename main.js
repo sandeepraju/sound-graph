@@ -13,7 +13,8 @@ app.get('/', function(req, res){
 });
 
 app.get('/event', function(req, res){
-    io.emit('event', req.body)
+    io.emit('event', req.body);
+    console.log(req.body);
     res.send({'status': 'success'});
 });
 
