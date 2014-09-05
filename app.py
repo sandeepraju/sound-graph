@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask.ext.socketio import SocketIO, emit
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ def index():
 def events():
     payload = json.loads(request.data)
     emit('events', {'data': payload})
-    response jsonify({'status': 'success'})
+    return  jsonify({'status': 'success'})
 
 # @socketio.on('my event', namespace='/test')
 # def test_message(message):
@@ -38,4 +38,4 @@ def test_disconnect():
     print('Client disconnected')
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port='5000')
+    socketio.run(app, host='0.0.0.0', port=5000)
